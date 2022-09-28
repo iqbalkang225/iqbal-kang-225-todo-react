@@ -1,0 +1,51 @@
+form{
+    margin-top: 2rem;
+}
+
+.form-control{
+    width: 100%;
+    border: 1px solid rgb(232, 5, 5);
+    display: flex;
+    border-radius: 5px;
+}
+
+.form-control.error{
+    animation: slide-in .2s ease-in-out;
+
+}
+
+@keyframes slide-in {
+    33%{
+        transform: translateX(10px);
+    }
+
+    66%{
+        transform: translateX(-10px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.form-control input{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-left: .2rem;
+    background: transparent;
+}
+
+.form-control button{
+    padding: 1rem 2.4rem;
+    color: white;
+    background: linear-gradient(to right, rgb(232, 5, 5), rgb(224, 67, 10)) no-repeat;
+    border: none;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-control button:hover{
+    background: linear-gradient(to left, rgb(232, 5, 5), rgb(224, 67, 10)) no-repeat;
+}
