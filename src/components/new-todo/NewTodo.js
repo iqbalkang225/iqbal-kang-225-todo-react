@@ -12,7 +12,6 @@ const NewTodo = (props) => {
     const inputChangeHHandler = (e) => {
         setTodo(e.target.value)
         setIsEntered(true)
-
     }
 
     const submitHandler = (e) => {

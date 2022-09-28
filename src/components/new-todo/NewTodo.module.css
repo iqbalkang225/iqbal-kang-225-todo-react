@@ -10,11 +10,11 @@ form{
 }
 
 .form-control.error{
-    animation: slide-in .2s ease-in-out;
+    animation: error .2s ease-in-out;
 
 }
 
-@keyframes slide-in {
+@keyframes error {
     33%{
         transform: translateX(10px);
     }

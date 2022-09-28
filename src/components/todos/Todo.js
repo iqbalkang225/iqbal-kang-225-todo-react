@@ -8,6 +8,7 @@ const Todo = ( {id, todo, todoList, onDelete, onEdit} ) => {
     const [isEditing, setIsEditing] = useState(false)
     const [editTodoValue, setEditTodoValue] = useState(todo)
     const [isChecked, setIschecked] = useState(false);
+    const [isEntered, setIsEntered] = useState(null)
 
     const inputRef = useRef()
 
@@ -20,12 +21,19 @@ const Todo = ( {id, todo, todoList, onDelete, onEdit} ) => {
 
     const updateTodoHandler = (id) => {
 
+        if(!editTodoValue) {
+            setIsEntered(false)
+            setTimeout(() => setIsEntered(true), 100)
+            return
+        }
+
         const newTodos = todoList.map(todo => {
 
-            return todo.id === id ? {
+            return !todo.id === id ? todo : 
+            {
                 ...todo,
                 todo: editTodoValue
-            } : todo
+            } 
         })
 
         onEdit(newTodos)
@@ -47,7 +55,7 @@ const Todo = ( {id, todo, todoList, onDelete, onEdit} ) => {
         setIschecked(e.target.checked)
     }
 
-    const todoClasses = `${styles.todo} ${isChecked ? styles.show : ''} ${isEditing ? styles.edit : ''}`
+    const todoClasses = `${styles.todo} ${isChecked ? styles.show : ''} ${isEditing ? styles.edit : ''} ${!isEntered ? styles.error : ''}`
     
     return (
         <li className = {todoClasses}>
